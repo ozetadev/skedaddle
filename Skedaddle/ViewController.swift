@@ -53,14 +53,14 @@ class ViewController: UIViewController {
         
         
         //text input stylization
-        nameField?.layer.cornerRadius = 3.0
-        nameField?.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0);
-        
-        entryField?.layer.cornerRadius = 3.0
-        entryField?.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0);
-
-        exitField?.layer.cornerRadius = 3.0
-        exitField?.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0);
+        stylizeTextField(exitField!)
+        stylizeTextField(entryField!)
+        stylizeTextField(nameField!)
+    }
+    
+    func stylizeTextField(field: UITextField) {
+        field.layer.cornerRadius = 3.0
+        field.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0);
 
     }
 
