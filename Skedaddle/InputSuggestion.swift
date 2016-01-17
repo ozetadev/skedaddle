@@ -29,6 +29,10 @@ class InputSuggestion : NSObject, UITextFieldDelegate, PlacesDelegate {
         else { // nah
             NSLog("No match")
             self.suggested = ""
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.outputArea!.text = self.suggested
+            });
+
         }
     }
 

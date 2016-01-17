@@ -21,9 +21,10 @@ class ViewController: UIViewController {
     @IBOutlet var datePicker:UIDatePicker?
     @IBOutlet var dateView:UIView?
     
+    
     var entrySuggestion:InputSuggestion?
     var exitSuggestion:InputSuggestion?
-    
+    var selectedDate:NSDate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,18 +67,24 @@ class ViewController: UIViewController {
         sender.alpha = 1.0
     }
     
-    @IBAction func triggerAction(sender: UIButton) {
+    @IBAction func triggerAction(sender: UIButton) { // start trip button pressed, move to next screen
         pressUp(sender)
         
-        UIView.animateWithDuration(0.5) { () -> Void in
-            self.startButton?.titleLabel?.alpha = 0
-            self.startButton?.userInteractionEnabled = false // prevents double tap
+        
+        if (entryField?.text == "" || exitField?.text == "" || selectedDate == nil) {
+            
+            // todo, alert
+            return;
         }
         
-        spinner?.startAnimating()
+        
+        // normally I'd create an event here, but I'm just simulating 1 elapsed second to make it look right
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0) * Int64(NSEC_PER_SEC)), dispatch_get_main_queue()) { () -> Void in
+            self.pushToOverview()
+        } // scratch that, push instantly
     }
     
-    @IBAction func pickDate(sender: UIButton) {
+    @IBAction func pickDate(sender: UIButton) { // date button pressed, show date modal
         pressUp(sender)
         
         var dateFrame:CGRect = (dateView?.frame)!
@@ -93,9 +100,12 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func dateSelected(sender: UIButton) {
+    @IBAction func dateSelected(sender: UIButton) { // date selected, hide modal
         var dateFrame:CGRect = (dateView?.frame)!
-   
+        selectedDate = datePicker?.date
+        
+        NSLog("SELECTED DATE: %@", selectedDate!)
+        
         UIView.animateWithDuration(0.8, animations: { () -> Void in
             dateFrame.origin.y = 1200
             self.dateView?.frame = dateFrame
@@ -104,6 +114,13 @@ class ViewController: UIViewController {
             self.dateView?.hidden = true
         }
 
+    }
+    
+    func pushToOverview() { // push to overview
+        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let info: InfoView = storyboard.instantiateViewControllerWithIdentifier("info") as! InfoView
+        self.navigationController?.pushViewController(info, animated: true)
+        spinner?.stopAnimating()
     }
 
 }
