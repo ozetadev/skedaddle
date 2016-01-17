@@ -105,14 +105,9 @@ class Uber : NSObject {
         let endLng:String = (end.objectForKey("lng")?.description)!
         
         var apiEndpoint = baseUrl.stringByAppendingString(priceEstimate)
-        //start
-        apiEndpoint = apiEndpoint + "?start_latitude=" + startLat
-        apiEndpoint = apiEndpoint + "&start_longitude=" + startLng
-        //end
-        apiEndpoint = apiEndpoint + "&end_latitude="  + endLat
-        apiEndpoint = apiEndpoint + "&end_longitude=" + endLng
-        //token 
-        apiEndpoint = apiEndpoint + "&server_token=" + serverToken
+      
+        //construct URL
+        apiEndpoint = apiEndpoint + "?start_latitude=" + startLat + "&start_longitude=" + startLng + "&end_latitude="  + endLat + "&end_longitude=" + endLng + "&server_token=" + serverToken
         
         
         // end locations
