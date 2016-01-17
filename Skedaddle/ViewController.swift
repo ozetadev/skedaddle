@@ -97,7 +97,14 @@ class ViewController: UIViewController {
     @IBAction func pickDate(sender: UIButton) { // date button pressed, show date modal
         pressUp(sender)
         
+        
+        
         var dateFrame:CGRect = (dateView?.frame)!
+        
+        if (dateFrame.origin.y <= 500) {
+            return
+        }
+        
         dateFrame.origin.y = 1200
         
         dateView?.frame = dateFrame
