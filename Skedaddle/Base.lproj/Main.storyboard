@@ -119,11 +119,30 @@
                                 </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CeJ-yh-Yp5">
-                                <rect key="frame" x="159" y="285" width="281" height="128"/>
+                                <rect key="frame" x="150" y="285" width="300" height="128"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="sdu-Iy-oWl">
+                                        <rect key="frame" x="8" y="8" width="284" height="89"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="474727811.82956201">
+                                            <!--2016-01-17 12:50:11 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQr-RI-gRg">
+                                        <rect key="frame" x="126" y="94" width="46" height="30"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dateSelected:" destination="Yyq-34-SmZ" eventType="touchUpInside" id="eCb-Ls-ovt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.4941176471" green="0.72156862749999995" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="WWe-Vw-twV"/>
-                                    <constraint firstAttribute="width" constant="281" id="Yuh-jC-aTa"/>
+                                    <constraint firstAttribute="width" constant="300" id="TTT-qy-MZ0"/>
+                                    <constraint firstAttribute="height" constant="128" id="YwQ-xv-yVh"/>
+                                    <constraint firstItem="HQr-RI-gRg" firstAttribute="centerX" secondItem="CeJ-yh-Yp5" secondAttribute="centerX" id="yFQ-q4-PWW"/>
+                                    <constraint firstItem="HQr-RI-gRg" firstAttribute="top" secondItem="CeJ-yh-Yp5" secondAttribute="top" constant="94" id="zC5-wJ-bt0"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -161,6 +180,7 @@
                     <navigationItem key="navigationItem" id="hhZ-cP-cnV"/>
                     <connections>
                         <outlet property="dateButton" destination="1Ua-Zl-Uuv" id="CoY-Qc-tll"/>
+                        <outlet property="datePicker" destination="sdu-Iy-oWl" id="GK3-Pb-k4i"/>
                         <outlet property="dateView" destination="CeJ-yh-Yp5" id="yrh-Fx-iKg"/>
                         <outlet property="entryField" destination="dsM-bT-Xg7" id="cnE-n4-nI5"/>
                         <outlet property="exitField" destination="Hrs-Et-wDJ" id="Wko-l1-Sn1"/>

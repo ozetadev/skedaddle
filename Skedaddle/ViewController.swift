@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         dateButton?.layer.cornerRadius = 4.0
         
         dateView?.layer.cornerRadius = 3.0
-       // datePicker!.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
+        datePicker!.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
 
         /*let ride:Uber = Uber()
         ride.getUberPrice("317 W. 34th Street, 10001", destination: "Times Square, NYC");*/
@@ -87,10 +87,23 @@ class ViewController: UIViewController {
         dateView?.hidden = false
         
         UIView.animateWithDuration(0.8) { () -> Void in
-            dateFrame.origin.y = 20
+            dateFrame.origin.y = 35
             self.dateView?.frame = dateFrame
         }
         
+    }
+    
+    @IBAction func dateSelected(sender: UIButton) {
+        var dateFrame:CGRect = (dateView?.frame)!
+   
+        UIView.animateWithDuration(0.8, animations: { () -> Void in
+            dateFrame.origin.y = 1200
+            self.dateView?.frame = dateFrame
+
+            }) { (Bool) -> Void in
+            self.dateView?.hidden = true
+        }
+
     }
 
 }
