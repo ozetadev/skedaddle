@@ -4,9 +4,8 @@ This app aims to hit all assigned points for the project.
 
   - Google Places: I use the Google Places API to auto-fill information in the routing text fields, as well as calculating     geometry
   - Connect to an API of some form (ex: weather API): I connect to the Uber pricing API, to show the user the alternative     (insane) Uber pricing. Note: This only works on trips that are under 100 miles, Uber refuses to give pricing on longer trips (A drag, I know). I went with UberX Pricing, but in the real world I'd probably show SUV.
-  - Autocomplete using at least two data sources: I autocomplete in the location field from the Google Places API, as well as   [add second source]
-  - Some form of a ticket or pass, with an animation: When you "buy" your ticket, you get a QR code ticket encoded with
-    the Date & Time, as well as the start and end points, and a randomly generated ID. Code obfuscated by animation.
+  - Autocomplete: I autocomplete in the location field from the Google Places API, as well as   [add second source]
+  - Some form of a ticket or pass, with an animation: QR code presented / ticket, animated with ripple effect by CATransition, not a great way to do ticketing but meets the challenge ;)
 
 
 A few points:
