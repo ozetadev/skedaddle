@@ -101,7 +101,7 @@ class ViewController: UIViewController {
         
         var dateFrame:CGRect = (dateView?.frame)!
         
-        if (dateFrame.origin.y <= 500) {
+        if (dateFrame.origin.y <= 500 && dateView?.hidden != true) {
             return
         }
         
