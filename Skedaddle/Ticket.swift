@@ -22,7 +22,7 @@ class Ticket: UIView {
         barcodeView = self.generateBarcode("Passenger Name: Philip Bernstein \n ID Number: 113848922")
         imageContainer = UIImageView()
         imageContainer.image = barcodeView
-        imageContainer.frame = CGRectMake(0, 0, 100, 100)
+        imageContainer.frame = CGRectMake(0, 0, 150, 150)
         self.addSubview(imageContainer)
     }
     
@@ -34,7 +34,7 @@ class Ticket: UIView {
     func generateWithObject(object: NSDictionary) {
         // todo
     }
-    
+        
     required init?(coder aDecoder: NSCoder) { // initializes through IB
         super.init(coder: aDecoder);
         initialize();
@@ -46,7 +46,7 @@ class Ticket: UIView {
         let filter = CIFilter(name: "CIQRCodeGenerator") // creates basic QR code
         filter!.setValue(data, forKey: "inputMessage")
         
-        let transform = CGAffineTransformMakeScale(3.0, 3.0) // expands QR code image ( starts out as blurry )
+        let transform = CGAffineTransformMakeScale(5.0, 5.0) // expands QR code image ( starts out as blurry )
         
         return UIImage(CIImage: filter!.outputImage!.imageByApplyingTransform(transform)) // transforms then returns
     }

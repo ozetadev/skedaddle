@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A2F1B341C4BBFFF0084A347 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F1B331C4BBFFF0084A347 /* Date.swift */; };
+		4A2F1B361C4BE4990084A347 /* Nav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F1B351C4BE4990084A347 /* Nav.swift */; };
 		4A60ED971C4BA17C00D82388 /* Uber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A60ED961C4BA17C00D82388 /* Uber.swift */; };
 		4A60ED991C4BB5D000D82388 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A60ED981C4BB5D000D82388 /* InfoView.swift */; };
 		4A60ED9B1C4BB66C00D82388 /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A60ED9A1C4BB66C00D82388 /* TicketView.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		4A2F1B331C4BBFFF0084A347 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		4A2F1B351C4BE4990084A347 /* Nav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nav.swift; sourceTree = "<group>"; };
 		4A60ED961C4BA17C00D82388 /* Uber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Uber.swift; sourceTree = "<group>"; };
 		4A60ED981C4BB5D000D82388 /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		4A60ED9A1C4BB66C00D82388 /* TicketView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				4A60ED981C4BB5D000D82388 /* InfoView.swift */,
 				4A60ED9A1C4BB66C00D82388 /* TicketView.swift */,
 				4A2F1B331C4BBFFF0084A347 /* Date.swift */,
+				4A2F1B351C4BE4990084A347 /* Nav.swift */,
 				4ACC988E1C4AD65200487E0E /* Main.storyboard */,
 				4ACC98911C4AD65200487E0E /* Assets.xcassets */,
 				4ACC98931C4AD65200487E0E /* LaunchScreen.storyboard */,
@@ -180,6 +183,7 @@
 				4ACC988B1C4AD65100487E0E /* AppDelegate.swift in Sources */,
 				4ACC989D1C4AD66300487E0E /* Places.swift in Sources */,
 				4ACC989F1C4AD86C00487E0E /* Ticket.swift in Sources */,
+				4A2F1B361C4BE4990084A347 /* Nav.swift in Sources */,
 				4A2F1B341C4BBFFF0084A347 /* Date.swift in Sources */,
 				4A60ED991C4BB5D000D82388 /* InfoView.swift in Sources */,
 			);

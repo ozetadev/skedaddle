@@ -16,6 +16,7 @@ class InfoView : UIViewController, UberDelegate {
     @IBOutlet var innerCircle:UIView?
     @IBOutlet var spinner:UIActivityIndicatorView?
     @IBOutlet var uberLabel:UILabel?
+    @IBOutlet var tripLabel:UILabel?
     
     var date:NSDate?
     var destination:String?
@@ -27,6 +28,32 @@ class InfoView : UIViewController, UberDelegate {
         outerCircle?.layer.cornerRadius = (outerCircle?.frame.size.width)!/2
         innerCircle?.layer.cornerRadius = (innerCircle?.frame.size.width)!/2
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        var start:String = String(departure)
+        var end:String = String(destination)
+        
+        let comp1:NSArray = start.componentsSeparatedByString(",")
+        let comp2:NSArray = end.componentsSeparatedByString(",")
+        
+        if (comp1.count > 0) {
+            start = comp1.firstObject as! String
+        }
+        if (comp2.count > 0) {
+            end = comp2.firstObject as! String
+        }
+        
+        var tripString:String! = start.stringByAppendingString(" to ").stringByAppendingString(end)
+        tripString = tripString.stringByReplacingOccurrencesOfString("Optional(\"", withString: "") // genuinely no idea why this is happening. investigate further.
+        NSLog("%@", tripString)
+        
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            self.tripLabel?.text = tripString
+        }
+
     }
     
     func priceLoaded(tripData:NSDictionary) {
@@ -50,6 +77,7 @@ class InfoView : UIViewController, UberDelegate {
     }
     
     func loadPrice() {
+        
         NSLog("LOAD PRICE %@ %@", departure!, destination!)
         
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
@@ -71,5 +99,13 @@ class InfoView : UIViewController, UberDelegate {
     
     @IBAction func buyTicket(sender: UIButton) {
         pressUp(sender)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let ticketView: TicketView = storyboard.instantiateViewControllerWithIdentifier("ticket") as! TicketView
+        self.navigationController?.pushViewController(ticketView, animated: true)
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return false
     }
 }

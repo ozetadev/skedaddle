@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 
 class TicketView : UIViewController {
+    var ticket:Ticket?
+    var date:NSDate?
+    var destination:String?
+    var entry:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

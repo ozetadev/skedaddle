@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet var dateButton:UIButton?
     @IBOutlet var datePicker:UIDatePicker?
     @IBOutlet var dateView:UIView?
+    @IBOutlet var nameField:UITextField?
     
     
     var entrySuggestion:InputSuggestion?
@@ -49,6 +50,18 @@ class ViewController: UIViewController {
         
         dateView?.layer.cornerRadius = 3.0
         datePicker!.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
+        
+        
+        //text input stylization
+        nameField?.layer.cornerRadius = 3.0
+        nameField?.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0);
+        
+        entryField?.layer.cornerRadius = 3.0
+        entryField?.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0);
+
+        exitField?.layer.cornerRadius = 3.0
+        exitField?.layer.sublayerTransform = CATransform3DMakeTranslation(8, 0, 0);
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -118,12 +131,15 @@ class ViewController: UIViewController {
         let info: InfoView = storyboard.instantiateViewControllerWithIdentifier("info") as! InfoView
         self.navigationController?.pushViewController(info, animated: true)
         
-        info.departure = entryField?.text
-        info.destination = exitField?.text
+        info.departure = entryField!.text
+        info.destination = exitField!.text
         info.date = selectedDate
         info.loadPrice()
         spinner?.stopAnimating()
     }
 
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
 }
 
