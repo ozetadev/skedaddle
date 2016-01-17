@@ -20,6 +20,7 @@ class InputSuggestion : NSObject, UITextFieldDelegate, PlacesDelegate {
             let result:String = results.objectAtIndex(0) as! String
             self.suggested = result
             
+            // main queue (ui update)
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.outputArea!.text = self.suggested
             });
@@ -29,6 +30,7 @@ class InputSuggestion : NSObject, UITextFieldDelegate, PlacesDelegate {
         else { // nah
             NSLog("No match")
             self.suggested = ""
+            // again w/ main queue for UI
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.outputArea!.text = self.suggested
             });
