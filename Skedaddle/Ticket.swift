@@ -40,7 +40,7 @@ class Ticket: UIView {
             self.imageContainer.layer.addAnimation(animation, forKey: nil)
         }
         
-        //overlap animation
+        //overlap animation (regular CATransitions allow a minute moment of non-ripple)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1) * Int64(NSEC_PER_SEC)), dispatch_get_main_queue()) { () -> Void in
             dispatch_async(dispatch_get_main_queue()) { () -> Void in
                 let animation:CATransition = CATransition()
