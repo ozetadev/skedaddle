@@ -24,6 +24,20 @@ class Ticket: UIView {
         imageContainer.image = barcodeView
         imageContainer.frame = CGRectMake(0, 0, 150, 150)
         self.addSubview(imageContainer)
+        
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            let animation:CATransition = CATransition()
+            animation.delegate = self
+            animation.duration = 2.0
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            animation.type = "rippleEffect"
+            animation.fillMode = kCAFillModeRemoved
+            animation.endProgress=0.9
+            animation.removedOnCompletion = false
+            animation.repeatCount = 1000000
+            
+            self.imageContainer.layer.addAnimation(animation, forKey: nil)
+        }
     }
     
     func generateWithText(text : String) { // allow customization
