@@ -30,19 +30,46 @@ class InfoView : UIViewController, UberDelegate {
     }
     
     func priceLoaded(tripData:NSDictionary) {
+
+        if (tripData.objectForKey("prices") == nil) {
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                self.spinner?.stopAnimating()
+                self.uberLabel?.text = "No Estimate"
+            }
+            return
+        }
+        
         let prices:NSArray = tripData.objectForKey("prices") as! NSArray
         let price:NSDictionary = prices.firstObject as! NSDictionary
         let estimate:String = price.objectForKey("estimate") as! String
         
-        spinner?.stopAnimating()
-        uberLabel?.text = estimate
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            self.spinner?.stopAnimating()
+            self.uberLabel?.text = estimate
+        }
     }
     
     func loadPrice() {
         NSLog("LOAD PRICE %@ %@", departure!, destination!)
         
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            self.spinner?.startAnimating()
+        }
+        
         let ride:Uber = Uber()
         ride.delegate = self
         ride.getUberPrice(departure!, destination: destination!)
+    }
+    
+    @IBAction func pressDown(sender: UIButton) {
+        sender.alpha = 0.8
+    }
+    
+    @IBAction func pressUp(sender: UIButton) {
+        sender.alpha = 1.0
+    }
+    
+    @IBAction func buyTicket(sender: UIButton) {
+        pressUp(sender)
     }
 }
