@@ -65,7 +65,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ending Point" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hrs-Et-wDJ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select destination address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hrs-Et-wDJ">
                                 <rect key="frame" x="150" y="132" width="300" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -74,7 +74,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Starting Point" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dsM-bT-Xg7">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select pickup location address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dsM-bT-Xg7">
                                 <rect key="frame" x="150" y="94" width="300" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -92,7 +92,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                 <color key="tintColor" red="0.36346365489842836" green="0.52815812352427871" blue="0.40080213894047934" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="START A ROUTE"/>
+                                <state key="normal" title="START ROUTE"/>
                                 <connections>
                                     <action selector="pressDown:" destination="Yyq-34-SmZ" eventType="touchDown" id="qyk-Cn-DyX"/>
                                     <action selector="pressUp:" destination="Yyq-34-SmZ" eventType="touchUpOutside" id="iyc-D3-dAl"/>
@@ -102,6 +102,30 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="AeZ-tR-ga8">
                                 <rect key="frame" x="290" y="382" width="20" height="20"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ua-Zl-Uuv">
+                                <rect key="frame" x="158" y="182" width="284" height="44"/>
+                                <color key="backgroundColor" red="0.4941176471" green="0.72156862749999995" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="a8E-0D-SeH"/>
+                                    <constraint firstAttribute="width" constant="284" id="s1g-Jc-UNq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <color key="tintColor" red="0.36346365489999999" green="0.52815812350000002" blue="0.40080213889999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="PICK DEPARTURE DATE"/>
+                                <connections>
+                                    <action selector="pickDate:" destination="Yyq-34-SmZ" eventType="touchUpInside" id="1er-m7-uwN"/>
+                                    <action selector="pressDown:" destination="Yyq-34-SmZ" eventType="touchDown" id="jA3-x6-7Vm"/>
+                                    <action selector="pressUp:" destination="Yyq-34-SmZ" eventType="touchUpOutside" id="WLA-Hy-9G0"/>
+                                </connections>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CeJ-yh-Yp5">
+                                <rect key="frame" x="159" y="285" width="281" height="128"/>
+                                <color key="backgroundColor" red="0.4941176471" green="0.72156862749999995" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="WWe-Vw-twV"/>
+                                    <constraint firstAttribute="width" constant="281" id="Yuh-jC-aTa"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -109,17 +133,20 @@
                             <constraint firstItem="goA-tZ-s0Q" firstAttribute="centerX" secondItem="PfH-nZ-LL2" secondAttribute="centerX" constant="-2" id="1WI-zU-4IS"/>
                             <constraint firstItem="Hrs-Et-wDJ" firstAttribute="top" secondItem="dsM-bT-Xg7" secondAttribute="bottom" constant="8" id="3mR-rm-1rF"/>
                             <constraint firstItem="dsM-bT-Xg7" firstAttribute="centerX" secondItem="PfH-nZ-LL2" secondAttribute="centerX" id="6CU-O9-WBw"/>
+                            <constraint firstItem="1Ua-Zl-Uuv" firstAttribute="top" secondItem="Hrs-Et-wDJ" secondAttribute="bottom" constant="20" id="6ac-Et-5Ah"/>
                             <constraint firstItem="dsM-bT-Xg7" firstAttribute="top" secondItem="7a0-AT-7GG" secondAttribute="bottom" constant="23" id="8Z6-Wq-kWI"/>
                             <constraint firstItem="7Yj-2k-0ID" firstAttribute="centerX" secondItem="PfH-nZ-LL2" secondAttribute="centerX" constant="-2" id="BNb-b1-4tG"/>
                             <constraint firstItem="7a0-AT-7GG" firstAttribute="top" secondItem="gYu-ma-THo" secondAttribute="bottom" constant="41" id="GEr-El-nBg"/>
                             <constraint firstItem="kO5-T7-PfX" firstAttribute="top" secondItem="iX4-XD-5Gn" secondAttribute="bottom" constant="49" id="GOz-gP-abC"/>
                             <constraint firstItem="7a0-AT-7GG" firstAttribute="centerX" secondItem="PfH-nZ-LL2" secondAttribute="centerX" id="Gly-gU-U19"/>
                             <constraint firstItem="Hrs-Et-wDJ" firstAttribute="centerX" secondItem="PfH-nZ-LL2" secondAttribute="centerX" id="LkV-lM-psW"/>
+                            <constraint firstItem="CeJ-yh-Yp5" firstAttribute="centerX" secondItem="PfH-nZ-LL2" secondAttribute="centerX" id="U1s-rd-IOB"/>
                             <constraint firstItem="goA-tZ-s0Q" firstAttribute="top" secondItem="7a0-AT-7GG" secondAttribute="bottom" constant="27" id="VGu-dZ-ehf"/>
                             <constraint firstItem="AeZ-tR-ga8" firstAttribute="centerX" secondItem="PfH-nZ-LL2" secondAttribute="centerX" id="Y9X-PK-o1V"/>
                             <constraint firstItem="7Yj-2k-0ID" firstAttribute="top" secondItem="dsM-bT-Xg7" secondAttribute="bottom" constant="12" id="cdi-6F-Z0B"/>
                             <constraint firstItem="kO5-T7-PfX" firstAttribute="top" secondItem="iX4-XD-5Gn" secondAttribute="bottom" constant="91" id="lZ4-va-TbZ"/>
                             <constraint firstItem="dsM-bT-Xg7" firstAttribute="top" secondItem="7a0-AT-7GG" secondAttribute="bottom" constant="46" id="lcV-0h-OQk"/>
+                            <constraint firstItem="1Ua-Zl-Uuv" firstAttribute="centerX" secondItem="PfH-nZ-LL2" secondAttribute="centerX" id="nHw-BS-YCu"/>
                             <constraint firstItem="iX4-XD-5Gn" firstAttribute="centerX" secondItem="PfH-nZ-LL2" secondAttribute="centerX" id="pzH-9J-5Yq"/>
                             <constraint firstItem="kO5-T7-PfX" firstAttribute="top" secondItem="iX4-XD-5Gn" secondAttribute="bottom" constant="123" id="qk9-Aw-lTu"/>
                         </constraints>
@@ -133,6 +160,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="hhZ-cP-cnV"/>
                     <connections>
+                        <outlet property="dateButton" destination="1Ua-Zl-Uuv" id="CoY-Qc-tll"/>
+                        <outlet property="dateView" destination="CeJ-yh-Yp5" id="yrh-Fx-iKg"/>
                         <outlet property="entryField" destination="dsM-bT-Xg7" id="cnE-n4-nI5"/>
                         <outlet property="exitField" destination="Hrs-Et-wDJ" id="Wko-l1-Sn1"/>
                         <outlet property="spinner" destination="AeZ-tR-ga8" id="IeU-dz-roa"/>
@@ -164,10 +193,10 @@
             </objects>
             <point key="canvasLocation" x="1863" y="388"/>
         </scene>
-        <!--View Controller-->
+        <!--Ticket View-->
         <scene sceneID="UbR-dZ-WyR">
             <objects>
-                <viewController storyboardIdentifier="ticket" id="r8I-he-eKs" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ticket" id="r8I-he-eKs" customClass="TicketView" customModule="Skedaddle" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c3B-4A-coI"/>
                         <viewControllerLayoutGuide type="bottom" id="NOt-VW-Xfe"/>

@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     @IBOutlet var suggestionEntry:UILabel?
     @IBOutlet var startButton:UIButton?
     @IBOutlet var spinner:UIActivityIndicatorView?
+    @IBOutlet var dateButton:UIButton?
+    @IBOutlet var datePicker:UIDatePicker?
+    @IBOutlet var dateView:UIView?
     
     var entrySuggestion:InputSuggestion?
     var exitSuggestion:InputSuggestion?
@@ -41,7 +44,11 @@ class ViewController: UIViewController {
         exitSuggestion?.outputArea = suggestionExit
         
         startButton?.layer.cornerRadius = 4.0
+        dateButton?.layer.cornerRadius = 4.0
         
+        dateView?.layer.cornerRadius = 3.0
+       // datePicker!.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
+
         /*let ride:Uber = Uber()
         ride.getUberPrice("317 W. 34th Street, 10001", destination: "Times Square, NYC");*/
     }
@@ -68,6 +75,22 @@ class ViewController: UIViewController {
         }
         
         spinner?.startAnimating()
+    }
+    
+    @IBAction func pickDate(sender: UIButton) {
+        pressUp(sender)
+        
+        var dateFrame:CGRect = (dateView?.frame)!
+        dateFrame.origin.y = 1200
+        
+        dateView?.frame = dateFrame
+        dateView?.hidden = false
+        
+        UIView.animateWithDuration(0.8) { () -> Void in
+            dateFrame.origin.y = 20
+            self.dateView?.frame = dateFrame
+        }
+        
     }
 
 }

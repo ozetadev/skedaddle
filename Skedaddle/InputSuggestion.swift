@@ -33,6 +33,11 @@ class InputSuggestion : NSObject, UITextFieldDelegate, PlacesDelegate {
     }
 
     func textFieldShouldReturn(textField: UITextField) -> Bool { // suggestion text overrides at this point
+        
+        if (suggested == "") {
+            return true
+        }
+        
         textField.text = suggested
         outputArea?.hidden = true
         suggested = ""

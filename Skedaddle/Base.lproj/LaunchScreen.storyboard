@@ -16,7 +16,37 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="START AND JOIN BUS RIDES " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uuT-gx-15i">
+                                <rect key="frame" x="126" y="159" width="349" height="52"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TO GO ANYWHERE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3c7-1K-tg2">
+                                <rect key="frame" x="165" y="182" width="270" height="52"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVe-0W-46D">
+                                <rect key="frame" x="149" y="242" width="303" height="52"/>
+                                <string key="text">EVERY ROUTE STARTS AT $5
+</string>
+                                <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="21"/>
+                                <color key="textColor" red="0.81960784313725488" green="0.29411764705882354" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.4941176471" green="0.72156862749999995" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="uuT-gx-15i" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="139" id="Fem-nt-aLd"/>
+                            <constraint firstItem="uuT-gx-15i" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="LBX-S7-V6R"/>
+                            <constraint firstItem="3c7-1K-tg2" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="aub-L1-y9c"/>
+                            <constraint firstItem="3c7-1K-tg2" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="162" id="nxb-Ln-W0n"/>
+                            <constraint firstItem="yVe-0W-46D" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="peo-x0-WEl"/>
+                            <constraint firstItem="yVe-0W-46D" firstAttribute="top" secondItem="3c7-1K-tg2" secondAttribute="bottom" constant="8" id="sUY-ck-ayp"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
