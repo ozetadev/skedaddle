@@ -24,7 +24,7 @@ class Uber : NSObject {
     var baseUrl:String = "https://api.uber.com/v1/"
     var priceEstimate:String = "estimates/price"
     
-    let delegate:UberDelegate?
+    var delegate:UberDelegate?
     
     override init() {
         self.delegate = nil

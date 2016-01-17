@@ -49,9 +49,6 @@ class ViewController: UIViewController {
         
         dateView?.layer.cornerRadius = 3.0
         datePicker!.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
-
-        /*let ride:Uber = Uber()
-        ride.getUberPrice("317 W. 34th Street, 10001", destination: "Times Square, NYC");*/
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,9 +76,9 @@ class ViewController: UIViewController {
         
         
         // normally I'd create an event here, but I'm just simulating 1 elapsed second to make it look right
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0) * Int64(NSEC_PER_SEC)), dispatch_get_main_queue()) { () -> Void in
-            self.pushToOverview()
-        } // scratch that, push instantly
+        //dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0) * Int64(NSEC_PER_SEC)), dispatch_get_main_queue()) { () -> Void in
+            pushToOverview()
+       // } // scratch that, push instantly
     }
     
     @IBAction func pickDate(sender: UIButton) { // date button pressed, show date modal
@@ -120,6 +117,11 @@ class ViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         let info: InfoView = storyboard.instantiateViewControllerWithIdentifier("info") as! InfoView
         self.navigationController?.pushViewController(info, animated: true)
+        
+        info.departure = entryField?.text
+        info.destination = exitField?.text
+        info.date = selectedDate
+        info.loadPrice()
         spinner?.stopAnimating()
     }
 
