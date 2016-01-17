@@ -103,8 +103,12 @@ class ViewController: UIViewController {
         dateView?.frame = dateFrame
         dateView?.hidden = false
         
+        entryField?.resignFirstResponder()
+        exitField?.resignFirstResponder()
+        nameField?.resignFirstResponder()
+        
         UIView.animateWithDuration(0.8) { () -> Void in
-            dateFrame.origin.y = 35
+            dateFrame.origin.y = 330
             self.dateView?.frame = dateFrame
         }
         

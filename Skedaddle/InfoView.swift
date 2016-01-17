@@ -102,6 +102,8 @@ class InfoView : UIViewController, UberDelegate {
         
         let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         let ticketView: TicketView = storyboard.instantiateViewControllerWithIdentifier("ticket") as! TicketView
+        ticketView.heroText = tripLabel?.text;
+        ticketView.date = date
         self.navigationController?.pushViewController(ticketView, animated: true)
     }
     

@@ -12,11 +12,27 @@ import UIKit
 class TicketView : UIViewController {
     var ticket:Ticket?
     var date:NSDate?
-    var destination:String?
-    var entry:String?
+    var heroText:String?
+    
+    @IBOutlet var ticketArea:UIView?
+    @IBOutlet var ticketLabel:UILabel?
+    @IBOutlet var dateLabel:UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ticketArea?.layer.cornerRadius = 15
+        
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        formatter.timeStyle = .MediumStyle
+        
+        let dateString = formatter.stringFromDate(date!)
+        
+        dispatch_async(dispatch_get_main_queue()) { () -> Void in
+            self.ticketLabel!.text = self.heroText
+            self.dateLabel?.text = dateString
+        }
     }
 
 }

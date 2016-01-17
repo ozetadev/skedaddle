@@ -25,19 +25,40 @@ class Ticket: UIView {
         imageContainer.frame = CGRectMake(0, 0, 150, 150)
         self.addSubview(imageContainer)
         
+        // animation 1
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
             let animation:CATransition = CATransition()
             animation.delegate = self
-            animation.duration = 2.0
-            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+            animation.duration = 2
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
             animation.type = "rippleEffect"
             animation.fillMode = kCAFillModeRemoved
-            animation.endProgress=0.9
+            animation.endProgress=1.0
             animation.removedOnCompletion = false
-            animation.repeatCount = 1000000
+            animation.repeatCount = 9999999999999999999
             
             self.imageContainer.layer.addAnimation(animation, forKey: nil)
         }
+        
+        //overlap animation
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1) * Int64(NSEC_PER_SEC)), dispatch_get_main_queue()) { () -> Void in
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                let animation:CATransition = CATransition()
+                animation.delegate = self
+                animation.duration = 0.85
+                animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+                animation.type = "rippleEffect"
+                animation.fillMode = kCAFillModeRemoved
+                animation.endProgress=1.0
+                animation.removedOnCompletion = false
+                animation.repeatCount = 9999999999999999999
+                
+                self.layer.addAnimation(animation, forKey: nil)
+            }
+        }
+        
+        self.backgroundColor = UIColor.clearColor()
+        imageContainer.backgroundColor = UIColor.clearColor()
     }
     
     func generateWithText(text : String) { // allow customization
