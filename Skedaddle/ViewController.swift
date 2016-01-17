@@ -16,9 +16,11 @@ class ViewController: UIViewController {
     @IBOutlet var suggestionExit:UILabel?
     @IBOutlet var suggestionEntry:UILabel?
     @IBOutlet var startButton:UIButton?
+    @IBOutlet var spinner:UIActivityIndicatorView?
     
     var entrySuggestion:InputSuggestion?
     var exitSuggestion:InputSuggestion?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +42,8 @@ class ViewController: UIViewController {
         
         startButton?.layer.cornerRadius = 4.0
         
-        let ride:Uber = Uber()
-        ride.getUberPrice("317 W. 34th Street, 10001", destination: "Times Square, NYC");
+        /*let ride:Uber = Uber()
+        ride.getUberPrice("317 W. 34th Street, 10001", destination: "Times Square, NYC");*/
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,6 +61,13 @@ class ViewController: UIViewController {
     
     @IBAction func triggerAction(sender: UIButton) {
         pressUp(sender)
+        
+        UIView.animateWithDuration(0.5) { () -> Void in
+            self.startButton?.titleLabel?.alpha = 0
+            self.startButton?.userInteractionEnabled = false // prevents double tap
+        }
+        
+        spinner?.startAnimating()
     }
 
 }
