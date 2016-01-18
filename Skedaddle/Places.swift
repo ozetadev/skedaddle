@@ -68,13 +68,13 @@ class Places : NSObject {
     
     func offlineMatch(find: String) { // whipped this up quickly to meet 2 source requirement
         let pathString = NSBundle.mainBundle().pathForResource("geo", ofType: "json")
-        let citiesString:NSString = try! NSString(contentsOfFile: pathString!, encoding: NSUTF8StringEncoding)
+        let citiesString:NSString = try! NSString(contentsOfFile: pathString!, encoding: NSUTF8StringEncoding) // path to json
         
-        let cities:NSArray = try! NSJSONSerialization.JSONObjectWithData(citiesString.dataUsingEncoding(NSUTF8StringEncoding)!, options: []) as! NSArray
+        let cities:NSArray = try! NSJSONSerialization.JSONObjectWithData(citiesString.dataUsingEncoding(NSUTF8StringEncoding)!, options: []) as! NSArray // json to usable object
+        //note: in production environment, serialization might be moved to a static instantiation. did not test the memory and processor footprint. Pros of this way: ARC cleans up array as soon as its done (if static would retain in memory) Cons: eats CPU time every time we run a search through it. Would need to weigh options
         
-        let predicate:NSPredicate = NSPredicate(format: "SELF contains[cd] %@" , find)
-        let output:NSArray = cities.filteredArrayUsingPredicate(predicate)
-        
+        let predicate:NSPredicate = NSPredicate(format: "SELF contains[cd] %@" , find) // defines what we're searching for
+        let output:NSArray = cities.filteredArrayUsingPredicate(predicate) // performs search (rather quickly I might add)
         
         if (output.count == 0) {
             NSLog("No offline hits")
