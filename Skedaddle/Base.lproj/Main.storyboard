@@ -163,9 +163,15 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="TTT-qy-MZ0"/>
                                     <constraint firstAttribute="height" constant="128" id="YwQ-xv-yVh"/>
+                                    <constraint firstAttribute="bottom" secondItem="HQr-RI-gRg" secondAttribute="bottom" constant="4" id="Z3y-Jk-Zia"/>
                                     <constraint firstItem="HQr-RI-gRg" firstAttribute="centerX" secondItem="CeJ-yh-Yp5" secondAttribute="centerX" id="yFQ-q4-PWW"/>
                                     <constraint firstItem="HQr-RI-gRg" firstAttribute="top" secondItem="CeJ-yh-Yp5" secondAttribute="top" constant="94" id="zC5-wJ-bt0"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="zC5-wJ-bt0"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
