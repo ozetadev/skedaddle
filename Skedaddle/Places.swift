@@ -72,17 +72,17 @@ class Places : NSObject {
         
         let cities:NSArray = try! NSJSONSerialization.JSONObjectWithData(citiesString.dataUsingEncoding(NSUTF8StringEncoding)!, options: []) as! NSArray
         
-        
-        let predicate:NSPredicate = NSPredicate(format: "(city ==  '%@')" , find)
+        let predicate:NSPredicate = NSPredicate(format: "SELF contains[cd] %@" , find)
         let output:NSArray = cities.filteredArrayUsingPredicate(predicate)
+        
         
         if (output.count == 0) {
             NSLog("No offline hits")
             return // sorry :(
         }
         
-        let prediction:NSDictionary = output.firstObject as! NSDictionary
-        currentPrediction = prediction.valueForKey("city") as! String
+        let prediction:String = output.firstObject as! String
+        currentPrediction = prediction
         self.delegate?.didLoadNewResults!([currentPrediction])
 
     }
