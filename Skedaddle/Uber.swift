@@ -51,7 +51,7 @@ class Uber : NSObject {
                 NSLog("Error retrieving results");
                 return;
             }
-            do {
+            do { 
                 if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? NSDictionary {
                     let results:NSArray = jsonResult.objectForKey("results") as! NSArray
                     let firstResult:NSDictionary = results.firstObject as! NSDictionary
@@ -97,7 +97,8 @@ class Uber : NSObject {
     }
     
     func getPriceFromGeometry(start: NSDictionary, end: NSDictionary) {
-
+        
+        // use lat & longs to request price from Uber's API
         let startLat:String = (start.objectForKey("lat")?.description)!
         let startLng:String = (start.objectForKey("lng")?.description)!
         

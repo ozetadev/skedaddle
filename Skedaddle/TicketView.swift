@@ -23,6 +23,7 @@ class TicketView : UIViewController {
         
         ticketArea?.layer.cornerRadius = 15
         
+        // string from date (readable, medium form)
         let formatter = NSDateFormatter()
         formatter.dateStyle = NSDateFormatterStyle.MediumStyle
         formatter.timeStyle = .MediumStyle

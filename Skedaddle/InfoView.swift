@@ -33,6 +33,7 @@ class InfoView : UIViewController, UberDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // totally nonsensical BS. the one thing that I don't understand about swift is them messing with my strings
         var start:String = String(departure)
         var end:String = String(destination)
         
@@ -57,7 +58,7 @@ class InfoView : UIViewController, UberDelegate {
     }
     
     func priceLoaded(tripData:NSDictionary) {
-
+        // uber class has called back w/ data on prices
         if (tripData.objectForKey("prices") == nil) {
             dispatch_async(dispatch_get_main_queue()) { () -> Void in
                 self.spinner?.stopAnimating()
@@ -77,7 +78,7 @@ class InfoView : UIViewController, UberDelegate {
     }
     
     func loadPrice() {
-        
+        // load price from Uber class
         NSLog("LOAD PRICE %@ %@", departure!, destination!)
         
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
@@ -100,6 +101,7 @@ class InfoView : UIViewController, UberDelegate {
     @IBAction func buyTicket(sender: UIButton) {
         pressUp(sender)
         
+        // push ticketView
         let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         let ticketView: TicketView = storyboard.instantiateViewControllerWithIdentifier("ticket") as! TicketView
         ticketView.heroText = tripLabel?.text;

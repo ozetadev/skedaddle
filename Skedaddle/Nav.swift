@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Nav:UINavigationController {
+class Nav:UINavigationController { // subclassing UINavigationController to control auto-rotate (unnecessary but efficient)
     override func shouldAutorotate() -> Bool {
         return false
     }

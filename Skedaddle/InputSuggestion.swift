@@ -60,7 +60,7 @@ class InputSuggestion : NSObject, UITextFieldDelegate, PlacesDelegate {
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
 
-        if (string == "" && range.location == 0) {
+        if (string == "" && range.location == 0) { // if empty field, no suggestion
             outputArea?.hidden = true
             outputArea?.text = ""
             suggested = ""
@@ -71,6 +71,7 @@ class InputSuggestion : NSObject, UITextFieldDelegate, PlacesDelegate {
             suggestor = Places()
         }
         
+        // use Places instance to generate auto suggestions
         suggestor?.delegate = self
         suggestor?.autoComplete(textField.text!)
         outputArea?.hidden = false
