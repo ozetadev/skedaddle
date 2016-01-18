@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4A2F1B361C4BE4990084A347 /* Nav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F1B351C4BE4990084A347 /* Nav.swift */; };
 		4A2F1B381C4BF1540084A347 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2F1B371C4BF1530084A347 /* QuartzCore.framework */; };
+		4A2F1B3A1C4C87B70084A347 /* geo.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A2F1B391C4C87B70084A347 /* geo.json */; };
+		4A2F1B3C1C4C894B0084A347 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2F1B3B1C4C894B0084A347 /* Reachability.swift */; };
+		4A2F1B3E1C4C895F0084A347 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2F1B3D1C4C895F0084A347 /* SystemConfiguration.framework */; };
 		4A60ED971C4BA17C00D82388 /* Uber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A60ED961C4BA17C00D82388 /* Uber.swift */; };
 		4A60ED991C4BB5D000D82388 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A60ED981C4BB5D000D82388 /* InfoView.swift */; };
 		4A60ED9B1C4BB66C00D82388 /* TicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A60ED9A1C4BB66C00D82388 /* TicketView.swift */; };
@@ -27,6 +30,9 @@
 /* Begin PBXFileReference section */
 		4A2F1B351C4BE4990084A347 /* Nav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nav.swift; sourceTree = "<group>"; };
 		4A2F1B371C4BF1530084A347 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4A2F1B391C4C87B70084A347 /* geo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = geo.json; sourceTree = "<group>"; };
+		4A2F1B3B1C4C894B0084A347 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		4A2F1B3D1C4C895F0084A347 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4A60ED961C4BA17C00D82388 /* Uber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Uber.swift; sourceTree = "<group>"; };
 		4A60ED981C4BB5D000D82388 /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		4A60ED9A1C4BB66C00D82388 /* TicketView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketView.swift; sourceTree = "<group>"; };
@@ -49,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A2F1B3E1C4C895F0084A347 /* SystemConfiguration.framework in Frameworks */,
 				4A2F1B381C4BF1540084A347 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,6 +66,7 @@
 		4ACC987E1C4AD65100487E0E = {
 			isa = PBXGroup;
 			children = (
+				4A2F1B3D1C4C895F0084A347 /* SystemConfiguration.framework */,
 				4A2F1B371C4BF1530084A347 /* QuartzCore.framework */,
 				4ACC98891C4AD65100487E0E /* Skedaddle */,
 				4ACC98881C4AD65100487E0E /* Products */,
@@ -86,10 +94,12 @@
 				4A60ED981C4BB5D000D82388 /* InfoView.swift */,
 				4A60ED9A1C4BB66C00D82388 /* TicketView.swift */,
 				4A2F1B351C4BE4990084A347 /* Nav.swift */,
+				4A2F1B3B1C4C894B0084A347 /* Reachability.swift */,
 				4ACC988E1C4AD65200487E0E /* Main.storyboard */,
 				4ACC98911C4AD65200487E0E /* Assets.xcassets */,
 				4ACC98931C4AD65200487E0E /* LaunchScreen.storyboard */,
 				4ACC98961C4AD65200487E0E /* Info.plist */,
+				4A2F1B391C4C87B70084A347 /* geo.json */,
 			);
 			path = Skedaddle;
 			sourceTree = "<group>";
@@ -167,6 +177,7 @@
 				4ACC98A41C4ADA1E00487E0E /* skedaddle.png in Resources */,
 				4ACC98921C4AD65200487E0E /* Assets.xcassets in Resources */,
 				4ACC98901C4AD65200487E0E /* Main.storyboard in Resources */,
+				4A2F1B3A1C4C87B70084A347 /* geo.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +196,7 @@
 				4ACC989D1C4AD66300487E0E /* Places.swift in Sources */,
 				4ACC989F1C4AD86C00487E0E /* Ticket.swift in Sources */,
 				4A2F1B361C4BE4990084A347 /* Nav.swift in Sources */,
+				4A2F1B3C1C4C894B0084A347 /* Reachability.swift in Sources */,
 				4A60ED991C4BB5D000D82388 /* InfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 @objc protocol PlacesDelegate { // marked objc to allow for optional methods
     optional func didLoadNewResults(results: NSArray)
     optional func didFindGeocode(result: NSArray)
@@ -57,10 +58,32 @@ class Places : NSObject {
                 }
             } catch let error as NSError {
                 print(error.localizedDescription)
+                self.offlineMatch(phrase) // match w/ included data set
             }
         }
         
         task.resume()
+    }
+    
+    func offlineMatch(find: String) { // this remains untested for now
+        let pathString = NSBundle.mainBundle().pathForResource("geo", ofType: "json")
+        let citiesString:NSString = try! NSString(contentsOfFile: pathString!, encoding: NSUTF8StringEncoding)
+        
+        let cities:NSArray = try! NSJSONSerialization.JSONObjectWithData(citiesString.dataUsingEncoding(NSUTF8StringEncoding)!, options: []) as! NSArray
+        
+        let format:String = "city CONTAINS '" + find + "'"
+        
+        let predicate:NSPredicate = NSPredicate(format:format , [])
+        let output:NSArray = cities.filteredArrayUsingPredicate(predicate)
+        
+        if (output.count == 0) {
+            return // sorry :(
+        }
+        
+        let prediction:NSDictionary = output.firstObject as! NSDictionary
+        currentPrediction = prediction.valueForKey("city") as! String
+        self.delegate?.didLoadNewResults!([currentPrediction])
+
     }
     
     func processData(dict : NSDictionary) { // process returned data for output
