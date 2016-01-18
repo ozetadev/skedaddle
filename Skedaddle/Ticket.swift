@@ -31,7 +31,7 @@ class Ticket: UIView {
             animation.delegate = self
             animation.duration = 2
             animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-            animation.type = "rippleEffect"
+            animation.type = "suckEffect"
             animation.fillMode = kCAFillModeRemoved
             animation.endProgress=1.0
             animation.removedOnCompletion = false
