@@ -66,18 +66,18 @@ class Places : NSObject {
         task.resume()
     }
     
-    func offlineMatch(find: String) { // this remains untested for now
+    func offlineMatch(find: String) { // whipped this up quickly to meet 2 source requirement
         let pathString = NSBundle.mainBundle().pathForResource("geo", ofType: "json")
         let citiesString:NSString = try! NSString(contentsOfFile: pathString!, encoding: NSUTF8StringEncoding)
         
         let cities:NSArray = try! NSJSONSerialization.JSONObjectWithData(citiesString.dataUsingEncoding(NSUTF8StringEncoding)!, options: []) as! NSArray
         
-        let format:String = "city CONTAINS '" + find + "'"
         
-        let predicate:NSPredicate = NSPredicate(format:format , [])
+        let predicate:NSPredicate = NSPredicate(format: "(city ==  '%@')" , find)
         let output:NSArray = cities.filteredArrayUsingPredicate(predicate)
         
         if (output.count == 0) {
+            NSLog("No offline hits")
             return // sorry :(
         }
         
