@@ -49,6 +49,7 @@ class Places : NSObject {
             
             if ((error) != nil) { // network problems, etc
                 NSLog("Error retrieving results");
+                self.offlineMatch(phrase)
                 return;
             }
             
