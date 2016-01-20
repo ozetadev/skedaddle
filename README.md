@@ -1,4 +1,6 @@
-# skedaddle
+# Skedaddle Demo App
+
+## Learned Swift (I'm an Objective-C guy) for this project. They went in another direction, but I like my first project, so I'm sharing it with you all.
 
 This app aims to hit all assigned points for the project.
 
