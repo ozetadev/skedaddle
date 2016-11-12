@@ -5,7 +5,7 @@
 This app aims to hit all assigned points for the project.
 
   - Google Places: I use the Google Places API to auto-fill information in the routing text fields, as well as calculating     geometry
-  - 
+  
   - Connect to an API of some form (ex: weather API): I connect to the Uber pricing API, to show the user the alternative     (insane) Uber pricing. Note: This only works on trips that are under 100 miles, Uber refuses to give pricing on longer trips (A drag, I know). I went with UberX Pricing, but in the real world I'd probably show SUV.
   
   - Autocomplete: I autocomplete in the location field from the Google Places API. When you are not connected to the internet, the autocomplete uses a database (in the form of JSON) of cities in the USA to guess what you're typing. Not as pretty, but does the job. That makes two sources.
